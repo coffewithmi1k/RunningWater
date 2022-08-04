@@ -13,6 +13,7 @@ class Game {
     constructor(player1, player2) {
         this.player1 = player1;
         this.player2 = player2;
+        this.counter = 1;
     }
 
     start() {
@@ -41,6 +42,22 @@ class Game {
         }
     }
 
+   startAnother(number) {
+        const playerNumber1  = player1.hitDice() + player1.hitDice();
+        const playerNumber2 = player2.hitDice() + player2.hitDice();
+        this.counter++
+        if(playerNumber1 > playerNumber2) {
+            console.log(`${player1.name} has won with number ${playerNumber1}`);
+        } else {
+            console.log(`${player2.name} has won with number ${playerNumber2}`);
+
+        }
+
+        if(this.counter <= number){
+            this.startAnother(number)
+        }
+    }
+
 
 
 
@@ -50,4 +67,5 @@ const player1 = new Player('Jack');
 const player2 = new Player('Chack');
 const game = new Game(player1, player2);
 //game.start();
-game.startRounds(16);
+//game.startRounds(16);
+game.startAnother(1);
