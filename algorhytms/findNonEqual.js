@@ -15,7 +15,8 @@
 }*/
 
 function findUniq(arr) {
- return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
+ //console.log(arr.indexOf(1) === arr.lastIndexOf(1))
+ return arr.filter(n => arr.indexOf(n) === arr.lastIndexOf(n));
 }
 
-console.log(findUniq([ 0, 0, 1 ]))
+console.log(findUniq([ 0, 1, 0 ]))
